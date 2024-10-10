@@ -1,6 +1,7 @@
 #include "deck.h"
 #include "deck.h"
 #include "exceptions.h"
+#include <algorithm>
 
 void Deck::outputDeck() {
     for (unsigned int i = 0; i < count; i++) {
@@ -15,7 +16,7 @@ Deck Deck::createRandomDeck() {
     std::cin >> count_v;
     if (count_v < 1 || count_v > 52)
         throw Exception{"Wrong size of deck"};
-    while(deck1.size() < count_v) { //for each
+    while(deck1.size() < count_v) {
             Card cardName = Card::createRandomCard();
             if (std::find_if(deck1.begin(), deck1.end(), [cardName](const Card& card) {
                 return (card.getRank() == cardName.getRank()) && (card.getSuit() == cardName.getSuit());
@@ -67,13 +68,12 @@ std::istream & operator >> (std::istream &s, Deck &deck1) {
     int  count;
     std::string suit;
     s >> count;
-    for (int i = 0; i < count; i++) { //for each
-        // s >> rank >> suit;
-        // deck1.deck.push_back(Card(rank, suit));
-        std::cin >> deck1.deck[i];
-        (deck1.count)++;
-
-    } 
+    for (int i = 0; i < count; ++i) {
+        Card card;
+        std::cin >> card;
+        deck1.deck.push_back(card);
+    }
+    deck1.count = count;
     if(s.bad()){
         s.setstate(std::ios::failbit);
     }
@@ -81,11 +81,9 @@ std::istream & operator >> (std::istream &s, Deck &deck1) {
 }
 
 std::ostream & operator << (std::ostream &s, Deck &deck1) {
-    for (unsigned int i = 0; i < deck1.count; i++) {
-        std::cout << deck1.deck[i];
-        // s << deck1.deck[i].getRank();
-        // s << deck1.deck[i].getSuit();
-    }
+    std::for_each (deck1.deck.begin(), deck1.deck.end(), [](Card &card){
+        std::cout << card;
+    });
     return s;
 }
 
@@ -114,24 +112,24 @@ void Deck::shuffleDeck() {
 }
 
 bool Deck::checkingDups() {
-  for (unsigned int i = 0; i < count; i++) {//for each
-    for (unsigned int j = i + 1; j < count; j++) {
-      if (deck[i].getRank() == deck[j].getRank() && deck[i].getSuit() == deck[j].getSuit()) {
-        return true; 
-      } 
+    for (unsigned int i = 0; i < count; i++) {
+        for (unsigned int j = i + 1; j < count; j++) {
+        if (deck[i].getRank() == deck[j].getRank() && deck[i].getSuit() == deck[j].getSuit()) {
+            return true; 
+        } 
+        }
     }
-  }
   return false;
 }
 
 
 Deck Deck::groupSuits(std::string suitName) {
     Deck newDeck;
-    for (unsigned int i = 0; i < count; i++) {//find func or for each
-        if (deck[i].getSuit() == suitName) {
-            newDeck.deck.push_back(deck[i]);
+    std::for_each(deck.begin(), deck.end(), [&suitName, &newDeck] (Card &card) {
+        if (card.getSuit() == suitName) {
+            newDeck.deck.push_back(card);
             (newDeck.count)++;
         }
-    }
+    });
     return newDeck;
 }
