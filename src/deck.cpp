@@ -3,6 +3,8 @@
 #include "exceptions.h"
 #include <algorithm>
 
+#define MAX_SIZE 52
+
 void Deck::outputDeck() {
     for (unsigned int i = 0; i < count; i++) {
         std::cout << deck[i].prettyFormat() << std::endl;
@@ -10,69 +12,97 @@ void Deck::outputDeck() {
 }
 
 Deck Deck::createRandomDeck() {
-    unsigned int count_v = 0;
-    std::vector<Card> deck1;
-    std::cout << "Enter the number of cards" << std::endl;
+    unsigned int count_v = 0, currSize = 0;
+    Deck deck1 = Deck();
+    std::cout << "Enter the number of cards from 1 to " << MAX_SIZE <<  std::endl;
     std::cin >> count_v;
-    if (count_v < 1 || count_v > 52)
-        throw Exception{"Wrong size of deck"};
-    while(deck1.size() < count_v) {
+    while (count_v < 1 || count_v > MAX_SIZE) {
+            std::cout << "Try again" << std::endl;
+            std::cin >> count_v;
+    }
+    deck1.count = count_v;
+    while(currSize < count_v) {
             Card cardName = Card::createRandomCard();
-            if (std::find_if(deck1.begin(), deck1.end(), [cardName](const Card& card) {
-                return (card.getRank() == cardName.getRank()) && (card.getSuit() == cardName.getSuit());
-            }) == deck1.end()) {
-                deck1.push_back(cardName);
+            if ((currSize == 0) || (std::find(deck1.deck, deck1.deck + currSize, cardName)  == (deck1.deck + currSize))) {
+                deck1.deck[currSize] = cardName;
+                currSize++;
             } 
     }
-    return Deck(count_v, deck1);
+    return deck1;
 }
 
 
 Deck Deck::createFullDeck() {
-    std::vector<Card> deck1;
+    unsigned int currSize = 0;
+    Deck deck1 = Deck();
+    deck1.count = MAX_SIZE;
     for (int i = 0; i < 13; i++) {
         for (int j = 0; j < 4; j++) {
-            deck1.push_back(Card(i + 1, Card::suits[j]));
+            deck1.deck[currSize] = Card(i + 1, Card::suits[j]);
+            currSize++;
         }
     }
-    return Deck(52, deck1);
+    return deck1;
 }
 
 
 
 void Deck::operator >> (Deck &deck1) {
-    if (deck1.deck.empty())
-        throw Exception("Deck is empty");
-    deck.push_back(deck1.deck.back());
-    deck1.deck.pop_back();
+    // if (deck1.deck == nullptr)
+        // throw Exception("Deck is empty");
+    if (count == capacity)
+        resize();
+    deck[count] = deck1.deck[deck1.count - 1];
     count++;
     deck1.count -= 1;
 }
 
-Card& Deck::operator [] (int index) {
+Card& Deck::operator [] (unsigned int index) {
     return deck[index];
 }
 
 void Deck::operator + (Deck &deck1) {
-    deck.insert(deck.end(), deck1.deck.begin(), deck1.deck.end());
+    while (count + deck1.count > capacity) { 
+        resize();
+    }
+    Card *newDeck = new Card[count + deck1.count];
+    std::copy(deck, deck + count, newDeck);
+    std::copy(deck1.deck, deck1.deck + deck1.count, newDeck + count);
+    delete[] deck; 
+    // delete[] deck1.deck;
+    deck = newDeck;
     count += deck1.count;
+    // deck1.deck = nullptr;
 }
 
 Deck& Deck::operator=(Deck &deck1) {
+    delete[] deck;
     deck = deck1.deck;
     count = deck1.count;
+    deck1.deck = nullptr;
     return *this;
 }
 
+Deck& Deck::operator=(Deck &&deck1) {
+    std::swap(deck1.deck, deck);
+    std::swap(deck1.count, count);
+    return *this;
+}
+
+
 std::istream & operator >> (std::istream &s, Deck &deck1) {
-    int  count;
+    unsigned int  count = 0, currSize = 0;
     std::string suit;
     s >> count;
-    for (int i = 0; i < count; ++i) {
+    Card *newDeck = new Card[count];
+    for (unsigned int i = 0; i < count; ++i) {
         Card card;
         std::cin >> card;
-        deck1.deck.push_back(card);
+        newDeck[currSize] = card;
+        currSize++;
     }
+    delete[] deck1.deck;
+    deck1.deck = newDeck;
     deck1.count = count;
     if(s.bad()){
         s.setstate(std::ios::failbit);
@@ -81,7 +111,7 @@ std::istream & operator >> (std::istream &s, Deck &deck1) {
 }
 
 std::ostream & operator << (std::ostream &s, Deck &deck1) {
-    std::for_each (deck1.deck.begin(), deck1.deck.end(), [](Card &card){
+    std::for_each (deck1.deck, deck1.deck + deck1.count, [](Card &card){
         std::cout << card;
     });
     return s;
@@ -92,23 +122,27 @@ std::ostream & operator << (std::ostream &s, Deck &deck1) {
 
 
 void Deck::addRandomCard() {
+    if (count == capacity)
+        resize();
     Card cardName = Card::createRandomCard();
-    deck.push_back(cardName);
+    deck[count] = cardName;
     count++;
 }
 
 void Deck::removeCard(int index) {
-    deck.erase(deck.begin() + index);
+    for (unsigned int i = index; i < count - 1; i++) {
+        deck[i] = deck[i + 1];
+    }
     count--;
 }
 
 void Deck::sortDeck() {
-    std::sort(deck.begin(), deck.end(), [](const Card &card1, const Card &card2) {
+    std::sort(deck, deck + count, [](const Card &card1, const Card &card2) {
          return card1.getSuit() != card2.getSuit() ? card1.getSuit() < card2.getSuit() : card1.getRank() < card2.getRank();});
 }
 
 void Deck::shuffleDeck() {
-    std::random_shuffle(deck.begin(), deck.end());
+    std::random_shuffle(deck, deck + count);
 }
 
 bool Deck::checkingDups() {
@@ -124,12 +158,23 @@ bool Deck::checkingDups() {
 
 
 Deck Deck::groupSuits(std::string suitName) {
-    Deck newDeck;
-    std::for_each(deck.begin(), deck.end(), [&suitName, &newDeck] (Card &card) {
+    Deck newDeck = Deck();
+    std::for_each(deck, deck + count, [&suitName, &newDeck] (Card &card) {
         if (card.getSuit() == suitName) {
-            newDeck.deck.push_back(card);
+            if (newDeck.count == newDeck.capacity)
+                    newDeck.resize();
+            newDeck[newDeck.count] = card;
             (newDeck.count)++;
         }
     });
     return newDeck;
+}
+
+
+void Deck::resize() {
+        capacity *= 2;
+        Card* newDeck = new Card[capacity]; 
+        std::copy(deck, deck + count, newDeck); 
+        delete[] deck;
+        deck = newDeck;
 }

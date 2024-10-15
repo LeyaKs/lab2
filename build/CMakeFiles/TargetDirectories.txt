@@ -1,0 +1,3 @@
+/home/s_koleso_m/oop2024/lab2/build/CMakeFiles/lab2.dir
+/home/s_koleso_m/oop2024/lab2/build/CMakeFiles/edit_cache.dir
+/home/s_koleso_m/oop2024/lab2/build/CMakeFiles/rebuild_cache.dir

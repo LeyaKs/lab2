@@ -3,16 +3,40 @@
 #include <vector>
 #include "card.h"
 
+#define MAX_SIZE 52
+
 class Deck {
-    std::vector<Card> deck;
+    Card *deck;
     unsigned int count;
+    unsigned int capacity;
     public:
-        Deck() {}
-        Deck(unsigned int count1, std::vector<Card> deck1) {
-            count = count1;
-            deck = std::move(deck1);
+        Deck() {
+            count = 0;
+            capacity = MAX_SIZE;
+            deck = new Card[MAX_SIZE];
         }
-        Deck(const Deck& deck1) : deck(deck1.deck), count(deck1.count) {}
+        Deck(unsigned int count1, Card *deck1) {
+            count = count1;
+            capacity = std::max((unsigned int)MAX_SIZE, count);
+            deck = new Card[count];
+            std::copy(deck1, deck1 + count, deck);
+        }
+
+        Deck(const Deck& deck1) {
+            count  = deck1.count;
+            capacity  = deck1.capacity;
+            // capacity = MAX_SIZE;
+            deck = new Card[count];
+            std::copy(deck1.deck, deck1.deck + count, deck);
+        }
+
+        Deck(Deck &&deck1) {
+            count = deck1.count;
+            capacity  = deck1.capacity;
+            deck = deck1.deck;
+            deck1.count = 0;
+            deck1.deck = nullptr;
+        }
 
 
         static Deck createRandomDeck();
@@ -20,9 +44,10 @@ class Deck {
         void outputDeck();
 
         void operator >> (Deck&);
-        Card &operator [] (int);
+        Card &operator [] (unsigned int);
         void operator + (Deck&);
         Deck& operator = (Deck&);
+        Deck& operator=(Deck&&);
         friend std::istream & operator >>(std::istream&, Deck&);
         friend std::ostream & operator <<(std::ostream&, Deck&);
 
@@ -34,4 +59,10 @@ class Deck {
         void shuffleDeck();
         bool checkingDups();
         Deck groupSuits(std::string);
+
+        void resize();
+
+        ~Deck() {
+            delete[] deck;
+        }
 };

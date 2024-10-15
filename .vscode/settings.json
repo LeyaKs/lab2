@@ -102,7 +102,25 @@
     "streambuf": "cpp",
     "cinttypes": "cpp",
     "typeinfo": "cpp",
-    "cstring": "cpp"
+    "cstring": "cpp",
+    "sstream": "cpp",
+    "bitset": "cpp",
+    "chrono": "cpp",
+    "condition_variable": "cpp",
+    "ctime": "cpp",
+    "map": "cpp",
+    "set": "cpp",
+    "optional": "cpp",
+    "ratio": "cpp",
+    "regex": "cpp",
+    "fstream": "cpp",
+    "future": "cpp",
+    "iomanip": "cpp",
+    "mutex": "cpp",
+    "semaphore": "cpp",
+    "stop_token": "cpp",
+    "thread": "cpp",
+    "variant": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

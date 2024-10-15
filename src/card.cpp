@@ -44,14 +44,12 @@ void Card::outputCard() {
 
 
 bool Card::operator == (const Card &card1) const {
-    if (suit != card1.suit)
-        throw Exception("Unequal suits");
-    return (rank == card1.rank);
+    return (rank == card1.rank && suit == card1.suit);
 }
 
 bool Card::operator < (const Card &card1) const {
-    if (suit != card1.suit)
-        throw Exception("Unequal suits");
+    // if (suit != card1.suit)
+    //     throw Exception("Unequal suits");
     return (rank < card1.rank);
 }
 

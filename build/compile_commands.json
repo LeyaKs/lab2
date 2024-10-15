@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/s_koleso_m/oop2024/lab2/build",
+  "command": "/usr/bin/c++  -I/home/s_koleso_m/oop2024/lab2/src -Wall -Wextra -g -g -std=gnu++20 -o CMakeFiles/lab2.dir/main.cpp.o -c /home/s_koleso_m/oop2024/lab2/main.cpp",
+  "file": "/home/s_koleso_m/oop2024/lab2/main.cpp"
+},
+{
+  "directory": "/home/s_koleso_m/oop2024/lab2/build",
+  "command": "/usr/bin/c++  -I/home/s_koleso_m/oop2024/lab2/src -Wall -Wextra -g -g -std=gnu++20 -o CMakeFiles/lab2.dir/src/card.cpp.o -c /home/s_koleso_m/oop2024/lab2/src/card.cpp",
+  "file": "/home/s_koleso_m/oop2024/lab2/src/card.cpp"
+},
+{
+  "directory": "/home/s_koleso_m/oop2024/lab2/build",
+  "command": "/usr/bin/c++  -I/home/s_koleso_m/oop2024/lab2/src -Wall -Wextra -g -g -std=gnu++20 -o CMakeFiles/lab2.dir/src/deck.cpp.o -c /home/s_koleso_m/oop2024/lab2/src/deck.cpp",
+  "file": "/home/s_koleso_m/oop2024/lab2/src/deck.cpp"
+}
+]
