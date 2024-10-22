@@ -1,4 +1,5 @@
-CMakeFiles/lab2.dir/main.cpp.o: /home/s_koleso_m/oop2024/lab2/main.cpp \
+CMakeFiles/lab2.dir/src/dialogue.cpp.o: \
+ /home/s_koleso_m/oop2024/lab2/src/dialogue.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -155,10 +156,5 @@ CMakeFiles/lab2.dir/main.cpp.o: /home/s_koleso_m/oop2024/lab2/main.cpp \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
- /home/s_koleso_m/oop2024/lab2/./src/card.h \
- /home/s_koleso_m/oop2024/lab2/./src/deck.h /usr/include/c++/11/vector \
- /usr/include/c++/11/bits/stl_uninitialized.h \
- /usr/include/c++/11/bits/stl_vector.h \
- /usr/include/c++/11/bits/stl_bvector.h \
- /usr/include/c++/11/bits/vector.tcc \
- /home/s_koleso_m/oop2024/lab2/./src/dialogue.h
+ /home/s_koleso_m/oop2024/lab2/src/dialogue.h \
+ /home/s_koleso_m/oop2024/lab2/src/card.h

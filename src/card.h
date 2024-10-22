@@ -1,7 +1,20 @@
+/**
+ * \file
+ * \brief Header file with description of functions of class card
+ */
+
+
 #pragma once
 
 #include <iostream>
 
+
+/**
+ * \class
+ * \brief Class Card with functions
+ * 
+ * Contains the rank and suit fields, constructors, destructors, functions and operators
+ */
 
 class Card {
     unsigned int rank;
@@ -32,9 +45,8 @@ class Card {
             return *this;
         }
 
-        Card inputCard();
         void outputCard();
-
+        Card inputCard();
         bool operator == (const Card&) const;
         bool operator < (const Card&) const;
         friend std::istream & operator >>(std::istream&, Card&);

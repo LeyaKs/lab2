@@ -1,6 +1,12 @@
+/**
+ * \file 
+ * \brief Main file
+ */
+
 #include <iostream>
 #include "./src/card.h"
 #include "./src/deck.h"
+#include "./src/dialogue.h"
 
 using std::cout;
 using std::cin;
@@ -9,6 +15,8 @@ using std::endl;
 int main() {
     srand(time(0));
     try {
+        Card card;
+        card.inputCard();
         Deck deck1 = Deck::createRandomDeck();
         deck1.outputDeck();
     }

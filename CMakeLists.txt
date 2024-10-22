@@ -7,5 +7,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 list(APPEND CMAKE_CXX_FLAGS "-Wall -Wextra -g")
 
-add_executable(lab2 main.cpp ./src/card.cpp ./src/deck.cpp)
+add_executable(lab2 main.cpp ./src/card.cpp ./src/deck.cpp ./src/dialogue.cpp)
 target_include_directories(lab2 PUBLIC src)

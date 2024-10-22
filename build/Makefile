@@ -201,6 +201,30 @@ src/deck.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/deck.cpp.s
 .PHONY : src/deck.cpp.s
 
+src/dialogue.o: src/dialogue.cpp.o
+.PHONY : src/dialogue.o
+
+# target to build an object file
+src/dialogue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/dialogue.cpp.o
+.PHONY : src/dialogue.cpp.o
+
+src/dialogue.i: src/dialogue.cpp.i
+.PHONY : src/dialogue.i
+
+# target to preprocess a source file
+src/dialogue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/dialogue.cpp.i
+.PHONY : src/dialogue.cpp.i
+
+src/dialogue.s: src/dialogue.cpp.s
+.PHONY : src/dialogue.s
+
+# target to generate assembly for a file
+src/dialogue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/dialogue.cpp.s
+.PHONY : src/dialogue.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -219,6 +243,9 @@ help:
 	@echo "... src/deck.o"
 	@echo "... src/deck.i"
 	@echo "... src/deck.s"
+	@echo "... src/dialogue.o"
+	@echo "... src/dialogue.i"
+	@echo "... src/dialogue.s"
 .PHONY : help
 
 

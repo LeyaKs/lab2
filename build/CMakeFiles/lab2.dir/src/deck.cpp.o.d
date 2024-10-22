@@ -162,7 +162,7 @@ CMakeFiles/lab2.dir/src/deck.cpp.o: \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
- /home/s_koleso_m/oop2024/lab2/src/exceptions.h \
+ /home/s_koleso_m/oop2024/lab2/src/dialogue.h \
  /usr/include/c++/11/algorithm /usr/include/c++/11/utility \
  /usr/include/c++/11/bits/stl_relops.h \
  /usr/include/c++/11/bits/ranges_algo.h \

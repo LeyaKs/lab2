@@ -13,5 +13,10 @@
   "directory": "/home/s_koleso_m/oop2024/lab2/build",
   "command": "/usr/bin/c++  -I/home/s_koleso_m/oop2024/lab2/src -Wall -Wextra -g -g -std=gnu++20 -o CMakeFiles/lab2.dir/src/deck.cpp.o -c /home/s_koleso_m/oop2024/lab2/src/deck.cpp",
   "file": "/home/s_koleso_m/oop2024/lab2/src/deck.cpp"
+},
+{
+  "directory": "/home/s_koleso_m/oop2024/lab2/build",
+  "command": "/usr/bin/c++  -I/home/s_koleso_m/oop2024/lab2/src -Wall -Wextra -g -g -std=gnu++20 -o CMakeFiles/lab2.dir/src/dialogue.cpp.o -c /home/s_koleso_m/oop2024/lab2/src/dialogue.cpp",
+  "file": "/home/s_koleso_m/oop2024/lab2/src/dialogue.cpp"
 }
 ]

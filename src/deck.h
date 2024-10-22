@@ -1,3 +1,9 @@
+/**
+ * \file
+ * \brief Header file with description of functions of class deck
+ */
+
+
 #pragma once
 
 #include <vector>
@@ -5,6 +11,12 @@
 
 #define MAX_SIZE 52
 
+/**
+ * \class
+ * \brief Class Deck with functions
+ * 
+ * Contains the count, capacity, array of cards, constructors, destructors, functions and operators
+ */
 class Deck {
     Card *deck;
     unsigned int count;
@@ -12,8 +24,8 @@ class Deck {
     public:
         Deck() {
             count = 0;
-            capacity = MAX_SIZE;
-            deck = new Card[MAX_SIZE];
+            capacity = 0;
+            deck = new Card[0];
         }
         Deck(unsigned int count1, Card *deck1) {
             count = count1;
@@ -25,7 +37,6 @@ class Deck {
         Deck(const Deck& deck1) {
             count  = deck1.count;
             capacity  = deck1.capacity;
-            // capacity = MAX_SIZE;
             deck = new Card[count];
             std::copy(deck1.deck, deck1.deck + count, deck);
         }
@@ -61,6 +72,8 @@ class Deck {
         Deck groupSuits(std::string);
 
         void resize();
+        unsigned int getCount() const { return count; }
+        Card *getDeck() const { return deck; }
 
         ~Deck() {
             delete[] deck;

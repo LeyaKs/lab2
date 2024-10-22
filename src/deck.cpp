@@ -1,9 +1,26 @@
+/**
+ * \file
+ * \brief File with class deck
+ * 
+ * This file contains the definition of the class deck and the main
+functions used in it
+ */
+
 #include "deck.h"
-#include "deck.h"
-#include "exceptions.h"
+#include "dialogue.h"
 #include <algorithm>
 
+/**
+ * \brief Number of cards in the full deck
+ */
 #define MAX_SIZE 52
+
+
+/**
+     * \brief Deck output
+     * \param none
+     * \return none
+     */
 
 void Deck::outputDeck() {
     for (unsigned int i = 0; i < count; i++) {
@@ -11,17 +28,18 @@ void Deck::outputDeck() {
     }
 }
 
+
+/**
+     * \brief Creating a random deck
+     * \param none
+     * \return new random Deck
+     */
 Deck Deck::createRandomDeck() {
-    unsigned int count_v = 0, currSize = 0;
+    unsigned int currSize = 0;
     Deck deck1 = Deck();
-    std::cout << "Enter the number of cards from 1 to " << MAX_SIZE <<  std::endl;
-    std::cin >> count_v;
-    while (count_v < 1 || count_v > MAX_SIZE) {
-            std::cout << "Try again" << std::endl;
-            std::cin >> count_v;
-    }
-    deck1.count = count_v;
-    while(currSize < count_v) {
+    if (deck1.count == deck1.capacity) deck1.resize();
+    deck1.count = createRandomDeckDialogue();
+    while(currSize < deck1.count) {
             Card cardName = Card::createRandomCard();
             if ((currSize == 0) || (std::find(deck1.deck, deck1.deck + currSize, cardName)  == (deck1.deck + currSize))) {
                 deck1.deck[currSize] = cardName;
@@ -31,10 +49,17 @@ Deck Deck::createRandomDeck() {
     return deck1;
 }
 
-
+/**
+     * \brief Creating a full deck
+     * \param none
+     * \return new full Deck
+     * 
+     * Using MAX_SIZE to create full deck
+     */
 Deck Deck::createFullDeck() {
     unsigned int currSize = 0;
     Deck deck1 = Deck();
+    if (deck1.count == deck1.capacity) deck1.resize();
     deck1.count = MAX_SIZE;
     for (int i = 0; i < 13; i++) {
         for (int j = 0; j < 4; j++) {
@@ -48,8 +73,6 @@ Deck Deck::createFullDeck() {
 
 
 void Deck::operator >> (Deck &deck1) {
-    // if (deck1.deck == nullptr)
-        // throw Exception("Deck is empty");
     if (count == capacity)
         resize();
     deck[count] = deck1.deck[deck1.count - 1];
@@ -69,15 +92,16 @@ void Deck::operator + (Deck &deck1) {
     std::copy(deck, deck + count, newDeck);
     std::copy(deck1.deck, deck1.deck + deck1.count, newDeck + count);
     delete[] deck; 
-    // delete[] deck1.deck;
     deck = newDeck;
     count += deck1.count;
-    // deck1.deck = nullptr;
 }
 
-Deck& Deck::operator=(Deck &deck1) {
+Deck& Deck::operator = (Deck &deck1) {
+    if (count == capacity) resize();
+    Card* newDeck = new Card[deck1.count];
+    std::copy(deck1.deck, deck1.deck + deck1.count, newDeck);
     delete[] deck;
-    deck = deck1.deck;
+    deck = newDeck;
     count = deck1.count;
     deck1.deck = nullptr;
     return *this;
@@ -97,29 +121,33 @@ std::istream & operator >> (std::istream &s, Deck &deck1) {
     Card *newDeck = new Card[count];
     for (unsigned int i = 0; i < count; ++i) {
         Card card;
-        std::cin >> card;
+        s >> card;
         newDeck[currSize] = card;
         currSize++;
     }
     delete[] deck1.deck;
     deck1.deck = newDeck;
     deck1.count = count;
-    if(s.bad()){
-        s.setstate(std::ios::failbit);
-    }
+    if(s.bad()) s.setstate(std::ios::failbit);
     return s;
 }
 
 std::ostream & operator << (std::ostream &s, Deck &deck1) {
-    std::for_each (deck1.deck, deck1.deck + deck1.count, [](Card &card){
-        std::cout << card;
+    std::for_each (deck1.deck, deck1.deck + deck1.count, [&s](Card &card){
+        s << card;
     });
     return s;
 }
 
 
 
-
+/**
+     * \brief Adding a new random card
+     * \param none
+     * \return none
+     * 
+     * If we don't have enough space in the deck, we expand it
+     */
 
 void Deck::addRandomCard() {
     if (count == capacity)
@@ -129,6 +157,14 @@ void Deck::addRandomCard() {
     count++;
 }
 
+
+/**
+     * \brief Deleting a card by index
+     * \param index
+     * \return none
+     * 
+     * If we have a lot of space in the deck, reduce it
+     */
 void Deck::removeCard(int index) {
     for (unsigned int i = index; i < count - 1; i++) {
         deck[i] = deck[i + 1];
@@ -157,6 +193,7 @@ bool Deck::checkingDups() {
 }
 
 
+
 Deck Deck::groupSuits(std::string suitName) {
     Deck newDeck = Deck();
     std::for_each(deck, deck + count, [&suitName, &newDeck] (Card &card) {
@@ -172,7 +209,7 @@ Deck Deck::groupSuits(std::string suitName) {
 
 
 void Deck::resize() {
-        capacity *= 2;
+        capacity += 52;
         Card* newDeck = new Card[capacity]; 
         std::copy(deck, deck + count, newDeck); 
         delete[] deck;
