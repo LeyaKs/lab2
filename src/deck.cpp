@@ -16,24 +16,16 @@ functions used in it
 #define MAX_SIZE 52
 
 
-/**
-     * \brief Deck output
-     * \param none
-     * \return none
-     */
+
 
 void Deck::outputDeck() {
-    for (unsigned int i = 0; i < count; i++) {
-        std::cout << deck[i].prettyFormat() << std::endl;
-    }
+    std::for_each (deck, deck + count, [](Card &card){
+        std::cout << card.prettyFormat() << std::endl;
+    });
 }
 
 
-/**
-     * \brief Creating a random deck
-     * \param none
-     * \return new random Deck
-     */
+
 Deck Deck::createRandomDeck() {
     unsigned int currSize = 0;
     Deck deck1 = Deck();
@@ -49,24 +41,18 @@ Deck Deck::createRandomDeck() {
     return deck1;
 }
 
-/**
-     * \brief Creating a full deck
-     * \param none
-     * \return new full Deck
-     * 
-     * Using MAX_SIZE to create full deck
-     */
+
 Deck Deck::createFullDeck() {
-    unsigned int currSize = 0;
+    unsigned int cardIndex = 0;
     Deck deck1 = Deck();
     if (deck1.count == deck1.capacity) deck1.resize();
     deck1.count = MAX_SIZE;
-    for (int i = 0; i < 13; i++) {
-        for (int j = 0; j < 4; j++) {
-            deck1.deck[currSize] = Card(i + 1, Card::suits[j]);
-            currSize++;
-        }
-    }
+    std::generate(deck1.deck, deck1.deck + MAX_SIZE, [&cardIndex](){
+        int rank = (cardIndex % 13) + 1;
+        int suitIndex = (cardIndex / 13);
+        cardIndex++;
+        return Card(rank, Card::suits[suitIndex]);
+    });
     return deck1;
 }
 
@@ -119,12 +105,18 @@ std::istream & operator >> (std::istream &s, Deck &deck1) {
     std::string suit;
     s >> count;
     Card *newDeck = new Card[count];
-    for (unsigned int i = 0; i < count; ++i) {
+    // for (unsigned int i = 0; i < count; ++i) {
+    //     Card card;
+    //     s >> card;
+    //     newDeck[currSize] = card;
+    //     currSize++;
+    // }
+    std::for_each(newDeck, newDeck + count, [&currSize, &s, &newDeck](Card &card1){
         Card card;
         s >> card;
         newDeck[currSize] = card;
         currSize++;
-    }
+    });
     delete[] deck1.deck;
     deck1.deck = newDeck;
     deck1.count = count;
@@ -141,13 +133,7 @@ std::ostream & operator << (std::ostream &s, Deck &deck1) {
 
 
 
-/**
-     * \brief Adding a new random card
-     * \param none
-     * \return none
-     * 
-     * If we don't have enough space in the deck, we expand it
-     */
+
 
 void Deck::addRandomCard() {
     if (count == capacity)
@@ -158,18 +144,12 @@ void Deck::addRandomCard() {
 }
 
 
-/**
-     * \brief Deleting a card by index
-     * \param index
-     * \return none
-     * 
-     * If we have a lot of space in the deck, reduce it
-     */
+
 void Deck::removeCard(int index) {
-    for (unsigned int i = index; i < count - 1; i++) {
-        deck[i] = deck[i + 1];
-    }
+    std::move(deck + index + 1, deck + count, deck + index);
     count--;
+    if (capacity - count >= 52)
+        reduce();
 }
 
 void Deck::sortDeck() {
@@ -182,6 +162,10 @@ void Deck::shuffleDeck() {
 }
 
 bool Deck::checkingDups() {
+    // deck.sortDeck();
+    // return std::adjacent_find(deck1.deck, deck1.deck + count, [](const Card &card1, const Card &card2) {
+    //     return card1.getRank() == card2.getRank() && card1.getSuit() == card2.getSuit();
+    // }) != (deck1.deck + count);
     for (unsigned int i = 0; i < count; i++) {
         for (unsigned int j = i + 1; j < count; j++) {
         if (deck[i].getRank() == deck[j].getRank() && deck[i].getSuit() == deck[j].getSuit()) {
@@ -210,6 +194,14 @@ Deck Deck::groupSuits(std::string suitName) {
 
 void Deck::resize() {
         capacity += 52;
+        Card* newDeck = new Card[capacity]; 
+        std::copy(deck, deck + count, newDeck); 
+        delete[] deck;
+        deck = newDeck;
+}
+
+void Deck::reduce() {
+        capacity -= 52;
         Card* newDeck = new Card[capacity]; 
         std::copy(deck, deck + count, newDeck); 
         delete[] deck;
