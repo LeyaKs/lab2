@@ -18,11 +18,6 @@ using std::endl;
 
 std::string Card::suits[] = {"Hearts", "Diamonds", "Clubs", "Spades"};
 
-/**
-     * \brief Creating a random card
-     * \param none
-     * \return new random Card
-     */
 
 Card Card::createRandomCard() {
     unsigned int rank = rand() % 13 + 1;
@@ -57,11 +52,7 @@ std::ostream & operator << (std::ostream &s, Card &card1) {
 
 
 
-/**
-     * \brief Creating a string with beautiful style
-     * \param none
-     * \return a string in a pretty format
-     */
+
 
 std::string Card::prettyFormat() {
     std::string ranks[] = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"}; 

@@ -1,8 +1,15 @@
+/**
+ * \file
+ * \brief File with dialogue functions
+ */
+
 #include <iostream>
 #include "dialogue.h"
 #include "card.h"
 
 #define MAX_SIZE 52
+
+
 
 unsigned int createRandomDeckDialogue() {
     unsigned int count_v;
@@ -14,6 +21,8 @@ unsigned int createRandomDeckDialogue() {
     }
     return count_v;
 }
+
+
 
 Card Card::inputCard() {
     unsigned int rank;
@@ -28,6 +37,8 @@ Card Card::inputCard() {
     } while (suit < 0 || suit > 3);
     return Card(rank, Card::suits[suit]);
 }
+
+
 
 void Card::outputCard() {
     std::cout << "Card's rank:\t" << rank << std::endl;

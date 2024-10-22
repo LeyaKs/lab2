@@ -1,0 +1,100 @@
+\hypertarget{classCard}{}\doxysection{Card Class Reference}
+\label{classCard}\index{Card@{Card}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCard_a6d0ab564acda2a3e35afbaf70a3be52a}\label{classCard_a6d0ab564acda2a3e35afbaf70a3be52a}} 
+{\bfseries Card} (unsigned int rank\+\_\+value, std\+::string suit\+\_\+value)
+\item 
+\mbox{\Hypertarget{classCard_a1ca86f8679a9f5609a9a4e62dce0c171}\label{classCard_a1ca86f8679a9f5609a9a4e62dce0c171}} 
+unsigned int {\bfseries get\+Rank} () const
+\item 
+\mbox{\Hypertarget{classCard_aee4149cf300420237604615f7b57b1e8}\label{classCard_aee4149cf300420237604615f7b57b1e8}} 
+std\+::string {\bfseries get\+Suit} () const
+\item 
+\mbox{\Hypertarget{classCard_a874e616ed7ac95a73cf756a64afcaea1}\label{classCard_a874e616ed7ac95a73cf756a64afcaea1}} 
+\mbox{\hyperlink{classCard}{Card}} \& {\bfseries set\+Rank} (const unsigned int rank\+\_\+value)
+\item 
+\mbox{\Hypertarget{classCard_a1fb88ca3afc8c419e9f3eaee19271606}\label{classCard_a1fb88ca3afc8c419e9f3eaee19271606}} 
+\mbox{\hyperlink{classCard}{Card}} \& {\bfseries set\+Siut} (const std\+::string suit\+\_\+value)
+\item 
+\mbox{\Hypertarget{classCard_a6f8a2b20d5bac2bf6401a4b6dd9d51f9}\label{classCard_a6f8a2b20d5bac2bf6401a4b6dd9d51f9}} 
+void {\bfseries output\+Card} ()
+\item 
+\mbox{\Hypertarget{classCard_a9d68c1475bbfe60c6fec17650fd73698}\label{classCard_a9d68c1475bbfe60c6fec17650fd73698}} 
+\mbox{\hyperlink{classCard}{Card}} {\bfseries input\+Card} ()
+\item 
+\mbox{\Hypertarget{classCard_a6457a10b3498b83b1c6eb92c104f8d68}\label{classCard_a6457a10b3498b83b1c6eb92c104f8d68}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classCard}{Card}} \&) const
+\item 
+\mbox{\Hypertarget{classCard_a6378b35797f0bcd3055c36ba4842bdbd}\label{classCard_a6378b35797f0bcd3055c36ba4842bdbd}} 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{classCard}{Card}} \&) const
+\item 
+std\+::string \mbox{\hyperlink{classCard_ae9056ce3fe31a580e751c8a41b1495bc}{pretty\+Format}} ()
+\begin{DoxyCompactList}\small\item\em Creating a string with beautiful style. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classCard}{Card}} \mbox{\hyperlink{classCard_aceaebb590f119f3ded110ce4210540cc}{create\+Random\+Card}} ()
+\begin{DoxyCompactList}\small\item\em Creating a random card. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCard_abddf024ba388497efa49fdc71b7c650f}\label{classCard_abddf024ba388497efa49fdc71b7c650f}} 
+static std\+::string {\bfseries suits} \mbox{[}$\,$\mbox{]} = \{\char`\"{}Hearts\char`\"{}, \char`\"{}Diamonds\char`\"{}, \char`\"{}Clubs\char`\"{}, \char`\"{}Spades\char`\"{}\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCard_ad8449331daec4b69758d15b4ddf1f07f}\label{classCard_ad8449331daec4b69758d15b4ddf1f07f}} 
+std\+::istream \& {\bfseries operator$>$$>$} (std\+::istream \&, \mbox{\hyperlink{classCard}{Card}} \&)
+\item 
+\mbox{\Hypertarget{classCard_ab2b5f16b14410a4d1d4913f769354e42}\label{classCard_ab2b5f16b14410a4d1d4913f769354e42}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&, \mbox{\hyperlink{classCard}{Card}} \&)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCard_aceaebb590f119f3ded110ce4210540cc}\label{classCard_aceaebb590f119f3ded110ce4210540cc}} 
+\index{Card@{Card}!createRandomCard@{createRandomCard}}
+\index{createRandomCard@{createRandomCard}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{createRandomCard()}{createRandomCard()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCard}{Card}} Card\+::create\+Random\+Card (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creating a random card. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new random \mbox{\hyperlink{classCard}{Card}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCard_ae9056ce3fe31a580e751c8a41b1495bc}\label{classCard_ae9056ce3fe31a580e751c8a41b1495bc}} 
+\index{Card@{Card}!prettyFormat@{prettyFormat}}
+\index{prettyFormat@{prettyFormat}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{prettyFormat()}{prettyFormat()}}
+{\footnotesize\ttfamily std\+::string Card\+::pretty\+Format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creating a string with beautiful style. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a string in a pretty format 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{card_8h}{card.\+h}}\item 
+\mbox{\hyperlink{card_8cpp}{card.\+cpp}}\item 
+dialogue.\+cpp\end{DoxyCompactItemize}

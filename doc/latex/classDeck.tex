@@ -1,0 +1,254 @@
+\hypertarget{classDeck}{}\doxysection{Deck Class Reference}
+\label{classDeck}\index{Deck@{Deck}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDeck_a65f9905801cd81f3f28ef5acbb5d76bb}\label{classDeck_a65f9905801cd81f3f28ef5acbb5d76bb}} 
+{\bfseries Deck} (unsigned int count1, \mbox{\hyperlink{classCard}{Card}} $\ast$deck1)
+\item 
+\mbox{\Hypertarget{classDeck_a3a7cf86916c95cfb74489c1a37156ab0}\label{classDeck_a3a7cf86916c95cfb74489c1a37156ab0}} 
+{\bfseries Deck} (const \mbox{\hyperlink{classDeck}{Deck}} \&deck1)
+\item 
+\mbox{\Hypertarget{classDeck_acc72bd21a6a2bcce8a4fee62842bb2c8}\label{classDeck_acc72bd21a6a2bcce8a4fee62842bb2c8}} 
+{\bfseries Deck} (\mbox{\hyperlink{classDeck}{Deck}} \&\&deck1)
+\item 
+\mbox{\Hypertarget{classDeck_afcbe2588da000c5b00dfde860ebdf492}\label{classDeck_afcbe2588da000c5b00dfde860ebdf492}} 
+void \mbox{\hyperlink{classDeck_afcbe2588da000c5b00dfde860ebdf492}{output\+Deck}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classDeck}{Deck}} output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDeck_aadf8bd38cf3d995365ab92f1e7c01148}{operator$>$$>$}} (\mbox{\hyperlink{classDeck}{Deck}} \&)
+\begin{DoxyCompactList}\small\item\em The operator of transferring a card from one deck to another. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCard}{Card}} \& \mbox{\hyperlink{classDeck_a1b0ed91006c1212f037f7ceb7c50f001}{operator\mbox{[}$\,$\mbox{]}}} (unsigned int)
+\begin{DoxyCompactList}\small\item\em The operator for taking an element by index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDeck_a8836d3d2274f5c04588d077299900118}{operator+}} (\mbox{\hyperlink{classDeck}{Deck}} \&)
+\begin{DoxyCompactList}\small\item\em The operator for adding two decks. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDeck}{Deck}} \& \mbox{\hyperlink{classDeck_af8716fc5d7d0b3493efe91f7973211bb}{operator=}} (\mbox{\hyperlink{classDeck}{Deck}} \&)
+\begin{DoxyCompactList}\small\item\em The copying operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDeck_ab02fd097838e905607370d999015240e}\label{classDeck_ab02fd097838e905607370d999015240e}} 
+\mbox{\hyperlink{classDeck}{Deck}} \& {\bfseries operator=} (\mbox{\hyperlink{classDeck}{Deck}} \&\&)
+\item 
+void \mbox{\hyperlink{classDeck_a525bda8121fac3782d50b0365299c03b}{add\+Random\+Card}} ()
+\begin{DoxyCompactList}\small\item\em Adding a new random card. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDeck_afbe3c3c1762c59a2855cb26fe9549a7d}{remove\+Card}} (int)
+\begin{DoxyCompactList}\small\item\em Deleting a card by index. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDeck_a5c374ae0f93fec957c5892fc3774c982}\label{classDeck_a5c374ae0f93fec957c5892fc3774c982}} 
+void \mbox{\hyperlink{classDeck_a5c374ae0f93fec957c5892fc3774c982}{sort\+Deck}} ()
+\begin{DoxyCompactList}\small\item\em Sorting deck. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDeck_a44577729d5b8cc5f5b416adb46ac3cd5}\label{classDeck_a44577729d5b8cc5f5b416adb46ac3cd5}} 
+void \mbox{\hyperlink{classDeck_a44577729d5b8cc5f5b416adb46ac3cd5}{shuffle\+Deck}} ()
+\begin{DoxyCompactList}\small\item\em Shuffle deck. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDeck_a2653163667278fe120ef1a65598ee0cd}{checking\+Dups}} ()
+\begin{DoxyCompactList}\small\item\em Checking duplicates in deck. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDeck}{Deck}} \mbox{\hyperlink{classDeck_a27cea8c6d60ea6e0a7f391441ca1ee82}{group\+Suits}} (std\+::string)
+\begin{DoxyCompactList}\small\item\em Grouping the deck by suit. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDeck_a57202d3516149ed78906cb4256673bb9}\label{classDeck_a57202d3516149ed78906cb4256673bb9}} 
+void \mbox{\hyperlink{classDeck_a57202d3516149ed78906cb4256673bb9}{resize}} ()
+\begin{DoxyCompactList}\small\item\em Resize deck, adding memory. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDeck_a3710732145bbef2edc331aeb4399aaf1}\label{classDeck_a3710732145bbef2edc331aeb4399aaf1}} 
+void \mbox{\hyperlink{classDeck_a3710732145bbef2edc331aeb4399aaf1}{reduce}} ()
+\begin{DoxyCompactList}\small\item\em Resize deck, reduce array. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classDeck_a14749214dc5e01997d208870bdc18a53}{get\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Get the number of cards. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCard}{Card}} $\ast$ \mbox{\hyperlink{classDeck_a68e4d1e719e8897de9916289acaac72c}{get\+Deck}} () const
+\begin{DoxyCompactList}\small\item\em Get deck. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classDeck}{Deck}} \mbox{\hyperlink{classDeck_a5c0414d6911ead7c5977d215d9817498}{create\+Random\+Deck}} ()
+\begin{DoxyCompactList}\small\item\em Creating a random deck. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classDeck}{Deck}} \mbox{\hyperlink{classDeck_a4df5efc369df8cc364a5af5a2f24fe9c}{create\+Full\+Deck}} ()
+\begin{DoxyCompactList}\small\item\em Creating a full deck. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDeck_a8a7731e00c7ff95ce76421f44c833f90}\label{classDeck_a8a7731e00c7ff95ce76421f44c833f90}} 
+std\+::istream \& {\bfseries operator$>$$>$} (std\+::istream \&, \mbox{\hyperlink{classDeck}{Deck}} \&)
+\item 
+\mbox{\Hypertarget{classDeck_a0bf4f769e0b6f8953fc8b4c2f819b098}\label{classDeck_a0bf4f769e0b6f8953fc8b4c2f819b098}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&, \mbox{\hyperlink{classDeck}{Deck}} \&)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDeck_a525bda8121fac3782d50b0365299c03b}\label{classDeck_a525bda8121fac3782d50b0365299c03b}} 
+\index{Deck@{Deck}!addRandomCard@{addRandomCard}}
+\index{addRandomCard@{addRandomCard}!Deck@{Deck}}
+\doxysubsubsection{\texorpdfstring{addRandomCard()}{addRandomCard()}}
+{\footnotesize\ttfamily void Deck\+::add\+Random\+Card (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Adding a new random card. 
+
+If we don\textquotesingle{}t have enough space in the deck, we expand it \mbox{\Hypertarget{classDeck_a2653163667278fe120ef1a65598ee0cd}\label{classDeck_a2653163667278fe120ef1a65598ee0cd}} 
+\index{Deck@{Deck}!checkingDups@{checkingDups}}
+\index{checkingDups@{checkingDups}!Deck@{Deck}}
+\doxysubsubsection{\texorpdfstring{checkingDups()}{checkingDups()}}
+{\footnotesize\ttfamily bool Deck\+::checking\+Dups (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checking duplicates in deck. 
+
+\begin{DoxyReturn}{Returns}
+bool value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDeck_a4df5efc369df8cc364a5af5a2f24fe9c}\label{classDeck_a4df5efc369df8cc364a5af5a2f24fe9c}} 
+\index{Deck@{Deck}!createFullDeck@{createFullDeck}}
+\index{createFullDeck@{createFullDeck}!Deck@{Deck}}
+\doxysubsubsection{\texorpdfstring{createFullDeck()}{createFullDeck()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDeck}{Deck}} Deck\+::create\+Full\+Deck (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creating a full deck. 
+
+\begin{DoxyReturn}{Returns}
+new full \mbox{\hyperlink{classDeck}{Deck}}
+\end{DoxyReturn}
+Using MAX\+\_\+\+SIZE to create full deck \mbox{\Hypertarget{classDeck_a5c0414d6911ead7c5977d215d9817498}\label{classDeck_a5c0414d6911ead7c5977d215d9817498}} 
+\index{Deck@{Deck}!createRandomDeck@{createRandomDeck}}
+\index{createRandomDeck@{createRandomDeck}!Deck@{Deck}}
+\doxysubsubsection{\texorpdfstring{createRandomDeck()}{createRandomDeck()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDeck}{Deck}} Deck\+::create\+Random\+Deck (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Creating a random deck. 
+
+\begin{DoxyReturn}{Returns}
+new random \mbox{\hyperlink{classDeck}{Deck}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDeck_a14749214dc5e01997d208870bdc18a53}\label{classDeck_a14749214dc5e01997d208870bdc18a53}} 
+\index{Deck@{Deck}!getCount@{getCount}}
+\index{getCount@{getCount}!Deck@{Deck}}
+\doxysubsubsection{\texorpdfstring{getCount()}{getCount()}}
+{\footnotesize\ttfamily unsigned int Deck\+::get\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the number of cards. 
+
+\begin{DoxyReturn}{Returns}
+Count 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDeck_a68e4d1e719e8897de9916289acaac72c}\label{classDeck_a68e4d1e719e8897de9916289acaac72c}} 
+\index{Deck@{Deck}!getDeck@{getDeck}}
+\index{getDeck@{getDeck}!Deck@{Deck}}
+\doxysubsubsection{\texorpdfstring{getDeck()}{getDeck()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCard}{Card}}$\ast$ Deck\+::get\+Deck (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get deck. 
+
+\begin{DoxyReturn}{Returns}
+Array of cards 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDeck_a27cea8c6d60ea6e0a7f391441ca1ee82}\label{classDeck_a27cea8c6d60ea6e0a7f391441ca1ee82}} 
+\index{Deck@{Deck}!groupSuits@{groupSuits}}
+\index{groupSuits@{groupSuits}!Deck@{Deck}}
+\doxysubsubsection{\texorpdfstring{groupSuits()}{groupSuits()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDeck}{Deck}} Deck\+::group\+Suits (\begin{DoxyParamCaption}\item[{std\+::string}]{suit\+Name }\end{DoxyParamCaption})}
+
+
+
+Grouping the deck by suit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & of suit \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A group of cards of the same suit 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDeck_a8836d3d2274f5c04588d077299900118}\label{classDeck_a8836d3d2274f5c04588d077299900118}} 
+\index{Deck@{Deck}!operator+@{operator+}}
+\index{operator+@{operator+}!Deck@{Deck}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily void Deck\+::operator+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDeck}{Deck}} \&}]{deck1 }\end{DoxyParamCaption})}
+
+
+
+The operator for adding two decks. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{classDeck}{Deck}},which} & we need o add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New deck, result of sum 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDeck_af8716fc5d7d0b3493efe91f7973211bb}\label{classDeck_af8716fc5d7d0b3493efe91f7973211bb}} 
+\index{Deck@{Deck}!operator=@{operator=}}
+\index{operator=@{operator=}!Deck@{Deck}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDeck}{Deck}} \& Deck\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDeck}{Deck}} \&}]{deck1 }\end{DoxyParamCaption})}
+
+
+
+The copying operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & deck to be copied \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New deck, result of sum 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDeck_aadf8bd38cf3d995365ab92f1e7c01148}\label{classDeck_aadf8bd38cf3d995365ab92f1e7c01148}} 
+\index{Deck@{Deck}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Deck@{Deck}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily void Deck\+::operator$>$$>$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDeck}{Deck}} \&}]{deck1 }\end{DoxyParamCaption})}
+
+
+
+The operator of transferring a card from one deck to another. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & deck from which to catch a card \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDeck_a1b0ed91006c1212f037f7ceb7c50f001}\label{classDeck_a1b0ed91006c1212f037f7ceb7c50f001}} 
+\index{Deck@{Deck}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Deck@{Deck}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCard}{Card}} \& Deck\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{unsigned int}]{index }\end{DoxyParamCaption})}
+
+
+
+The operator for taking an element by index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classCard}{Card}} with our index 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDeck_afbe3c3c1762c59a2855cb26fe9549a7d}\label{classDeck_afbe3c3c1762c59a2855cb26fe9549a7d}} 
+\index{Deck@{Deck}!removeCard@{removeCard}}
+\index{removeCard@{removeCard}!Deck@{Deck}}
+\doxysubsubsection{\texorpdfstring{removeCard()}{removeCard()}}
+{\footnotesize\ttfamily void Deck\+::remove\+Card (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Deleting a card by index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & If we have a lot of space in the deck, reduce it \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{deck_8h}{deck.\+h}}\item 
+\mbox{\hyperlink{deck_8cpp}{deck.\+cpp}}\end{DoxyCompactItemize}

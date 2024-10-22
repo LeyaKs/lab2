@@ -105,14 +105,7 @@ std::istream & operator >> (std::istream &s, Deck &deck1) {
     std::string suit;
     s >> count;
     Card *newDeck = new Card[count];
-    // for (unsigned int i = 0; i < count; ++i) {
-    //     Card card;
-    //     s >> card;
-    //     newDeck[currSize] = card;
-    //     currSize++;
-    // }
-    std::for_each(newDeck, newDeck + count, [&currSize, &s, &newDeck](Card &card1){
-        Card card;
+    std::for_each(newDeck, newDeck + count, [&currSize, &s, &newDeck](Card card){
         s >> card;
         newDeck[currSize] = card;
         currSize++;
@@ -153,28 +146,23 @@ void Deck::removeCard(int index) {
 }
 
 void Deck::sortDeck() {
-    std::sort(deck, deck + count, [](const Card &card1, const Card &card2) {
-         return card1.getSuit() != card2.getSuit() ? card1.getSuit() < card2.getSuit() : card1.getRank() < card2.getRank();});
+  std::sort(deck, deck + count, [](const Card &card1, const Card &card2) {
+    return card1.getSuit() != card2.getSuit() ? card1.getSuit() < card2.getSuit() : card1.getRank() < card2.getRank();
+  });
 }
 
 void Deck::shuffleDeck() {
-    std::random_shuffle(deck, deck + count);
+  std::random_shuffle(deck, deck + count);
 }
 
 bool Deck::checkingDups() {
-    // deck.sortDeck();
-    // return std::adjacent_find(deck1.deck, deck1.deck + count, [](const Card &card1, const Card &card2) {
-    //     return card1.getRank() == card2.getRank() && card1.getSuit() == card2.getSuit();
-    // }) != (deck1.deck + count);
-    for (unsigned int i = 0; i < count; i++) {
-        for (unsigned int j = i + 1; j < count; j++) {
-        if (deck[i].getRank() == deck[j].getRank() && deck[i].getSuit() == deck[j].getSuit()) {
-            return true; 
-        } 
-        }
-    }
-  return false;
+    this->sortDeck();
+    return std::adjacent_find(deck, deck + count, [](const Card &c1, const Card &c2) {
+        return c1.getRank() == c2.getRank() && c1.getSuit() == c2.getSuit();
+  }) != deck + count;
 }
+
+
 
 
 

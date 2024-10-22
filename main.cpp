@@ -15,9 +15,8 @@ using std::endl;
 int main() {
     srand(time(0));
     try {
-        Card card;
-        card.inputCard();
-        Deck deck1 = Deck::createRandomDeck();
+        Deck deck1 = Deck::createFullDeck();
+        Deck deck2;
         deck1.outputDeck();
     }
     catch(const std::runtime_error& e) {

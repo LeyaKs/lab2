@@ -31,6 +31,12 @@ class Card {
             suit = suit_value;
         }
         
+
+        /**
+             * \brief Creating a random card
+             * \param none
+             * \return new random Card
+             */
         static Card createRandomCard();
 
         unsigned int getRank() const {return rank;}
@@ -45,12 +51,40 @@ class Card {
             return *this;
         }
 
+        /**
+             * \brief Output card
+             */
         void outputCard();
+
+        /**
+             * \brief Getting data to create card 
+             * \return New card
+             */
         Card inputCard();
+
+
+        /**
+             * \brief Сomparison operator
+             * \param Card to compare
+             * \return Bool value
+             */
         bool operator == (const Card&) const;
         bool operator < (const Card&) const;
+
+        /**
+           * \brief Input operator
+           */ 
         friend std::istream & operator >>(std::istream&, Card&);
+
+        /**
+           * \brief Output operator
+           */ 
         friend std::ostream & operator <<(std::ostream&, Card&);
 
+        /**
+             * \brief Creating a string with beautiful style
+             * \param none
+             * \return a string in a pretty format
+             */
         std::string prettyFormat();
 };

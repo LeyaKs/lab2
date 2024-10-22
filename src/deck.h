@@ -94,11 +94,26 @@ class Deck {
     /**
          * \brief The copying operator
          * \param The deck to be copied
-         * \return New deck, result of sum
+         * \return New deck, result of copying
          */ 
         Deck& operator = (Deck&);
+
+     /**
+           * \brief Moving operator
+           * \param The deck to be moved
+           * \return New deck, result of moving
+           */ 
         Deck& operator=(Deck&&);
+
+
+     /**
+           * \brief Input operator
+           */ 
         friend std::istream & operator >>(std::istream&, Deck&);
+
+     /**
+           * \brief Output operator
+           */ 
         friend std::ostream & operator <<(std::ostream&, Deck&);
 
 
