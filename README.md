@@ -6,7 +6,7 @@ This project consists of two classes, a card and a deck. The first describes the
 **main.cpp** ------- the base file for using classes<br>
 **src** ------- the folder with the rest of the auxiliary files<br>
 **card.h** ------- description of the card class<br>
-**card.cpp** ------- implementation of card class functions
+**card.cpp** ------- implementation of card class functions<br>
 **deck.h** ------- description of the deck class<br>
 **deck.cpp** ------- implementation of deck class functions<br>
 **dialogue.h** -------description of functions for communicating with the user<br>
