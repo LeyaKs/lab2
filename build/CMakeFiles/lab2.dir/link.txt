@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wall -Wextra -g -g CMakeFiles/lab2.dir/main.cpp.o CMakeFiles/lab2.dir/src/card.cpp.o CMakeFiles/lab2.dir/src/deck.cpp.o CMakeFiles/lab2.dir/src/dialogue.cpp.o CMakeFiles/lab2.dir/src/input.cpp.o -o lab2 
