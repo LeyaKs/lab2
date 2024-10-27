@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/lab2.dir/src/deck.cpp.o.d"
   "CMakeFiles/lab2.dir/src/dialogue.cpp.o"
   "CMakeFiles/lab2.dir/src/dialogue.cpp.o.d"
+  "CMakeFiles/lab2.dir/src/input.cpp.o"
+  "CMakeFiles/lab2.dir/src/input.cpp.o.d"
   "lab2"
   "lab2.pdb"
 )

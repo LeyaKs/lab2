@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/s_koleso_m/oop2024/lab2/src/card.cpp" "CMakeFiles/lab2.dir/src/card.cpp.o" "gcc" "CMakeFiles/lab2.dir/src/card.cpp.o.d"
   "/home/s_koleso_m/oop2024/lab2/src/deck.cpp" "CMakeFiles/lab2.dir/src/deck.cpp.o" "gcc" "CMakeFiles/lab2.dir/src/deck.cpp.o.d"
   "/home/s_koleso_m/oop2024/lab2/src/dialogue.cpp" "CMakeFiles/lab2.dir/src/dialogue.cpp.o" "gcc" "CMakeFiles/lab2.dir/src/dialogue.cpp.o.d"
+  "/home/s_koleso_m/oop2024/lab2/src/input.cpp" "CMakeFiles/lab2.dir/src/input.cpp.o" "gcc" "CMakeFiles/lab2.dir/src/input.cpp.o.d"
   )
 
 # Targets to which this target links.

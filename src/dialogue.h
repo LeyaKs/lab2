@@ -1,7 +1,8 @@
 /**
  * \file
  * \brief Header file with description of functions of class card
- */#pragma once
+ */
+#pragma once
 
 #include <iostream>
 #include "card.h"
